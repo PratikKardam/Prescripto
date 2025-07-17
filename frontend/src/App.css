@@ -1,7 +1,0 @@
-.bg-primary{
-    background-color: #5f6FFF;
-}
-
-.grid-cols-auto{
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
