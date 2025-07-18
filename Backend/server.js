@@ -11,19 +11,27 @@ import userRouter from './routes/userRoute.js'
 
 const app = express()
 const port = process.env.PORT || 4001
+const allowedOrigins = [
+  'https://prescripto-admin-mdhi.onrender.com',
+  'https://prescripto-frontend-66k2.onrender.com'
+];
 connectDB()
 connectCloudinary()
 
 // middlewares
 
 app.use(express.json())
+
+
 app.use(cors({
-  origin: 'https://prescripto-frontend-f7wq.onrender.com',
-  credentials: true // if using cookies or authorization headers
-}));
-app.use(cors({
-  origin: 'https://prescripto-admin-mdhi.onrender.com',
-  credentials: true // if using cookies or authorization headers
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // if needed for cookies or auth headers
 }));
 
 
