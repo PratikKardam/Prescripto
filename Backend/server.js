@@ -12,7 +12,7 @@ import userRouter from './routes/userRoute.js'
 const app = express()
 const port = process.env.PORT || 4001
 const allowedOrigins = [
-  'https://prescripto-admin-mdhi.onrender.com',
+  'https://prescripto-admin-8pdu.onrender.com',
   'https://prescripto-frontend-66k2.onrender.com'
 ];
 connectDB()
